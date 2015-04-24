@@ -72,6 +72,5 @@ angular.module('tokki')
 
   // This will be given before this page loads.
   console.log('$location: ' + $location.path().split('/')[2]);
->>>>>>> development
   $scope.init($location.path().split('/')[2]);
 }]);
