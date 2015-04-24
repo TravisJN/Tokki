@@ -9,6 +9,9 @@ exports.SessionsCollection = Backbone.Collection.extend({
 
   // Adds a new session and returns its unique identifier
   addNewSession: function(params) {
+    console.log("addNewSession called");
+    console.log(params);
+    console.log('');
     params = params || {};
     var session = new SessionModel(params);
     this.add(session);
@@ -22,7 +25,9 @@ exports.SessionsCollection = Backbone.Collection.extend({
       dbUtils.closeSessionInDb({
         provider: session.get('provider'),
         hostId: session.get('hostId'),
-        sessionId: sessionId
+        sessionId: sessionId,
+        weightedAverage: session.getHistoricalAverage(),
+        userCount: session.get('votes').length
       });
     }
   },

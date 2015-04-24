@@ -65,4 +65,26 @@ function onListening() {
     : 'port ' + addr.port;
 }
 
+/**
+ * Listening/Emitting for Socket.io Messages
+ */
+
+ io.on('connection', function(socket){
+  console.log('server.js:  a user connected');
+  socket.on('questionForStudent', function(msg){
+    console.log('server.js:  message for student: ' + msg);
+    io.emit('questionForStudent', msg);
+  });
+  socket.on('studentAnswer', function(msg){
+    console.log('server.js:  studentAnswer(!!!): ' + msg);
+    io.emit('studentAnswer', msg);
+  });
+  socket.on('vote', function(msg){
+    console.log('vote');
+  });
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+});
+
 exports.io = io;

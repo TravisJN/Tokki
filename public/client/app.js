@@ -1,4 +1,4 @@
-angular.module('tokki', ['ui.router']);
+angular.module('tokki', ['ui.router', 'ngFx', 'ngAnimate']);
 
 angular.module('tokki')
   .config(function($stateProvider, $urlRouterProvider) {
@@ -27,6 +27,46 @@ angular.module('tokki')
       url: '/hostSession',
       templateUrl: './views/hostSession.html',
       controller: 'HostController'
+    })
+    .state('hostSession.results', {
+      //View that shows results of question sent by host
+      url: '/results',
+      templateUrl: './views/questionResultsView.html',
+      controller: 'QuestionResultsController'
+    })
+    // Routes to the host's history of sessions
+    .state('hostHistoryView', {
+      url: '/hostHistoryView',
+      templateUrl: './views/hostHistoryView.html',
+      controller: 'AnalysisController'
+    })
+    //Routes to the host session analysis
+    .state('hostAnalysisView', {
+      url: '/hostAnalysisView',
+      templateUrl: './views/hostAnalysisView.html',
+      controller: 'AnalysisController'
+    })
+    //Routes to the host login view
+    .state('hostLoginView', {
+      url: '/hostLogin',
+      templateUrl: './views/hostLoginView.html',
+      controller: 'AnalysisController'
+    })
+    //Routes to the host post question view
+    .state('questionMenu', {
+      url: '/questionMenu',
+      templateUrl: './views/questionMenuView.html',
+      controller: 'PostQuestionController'
+    })
+    .state('questionMenu.postQuestion', {
+      url: '/postQuestion',
+      templateUrl: './views/postQuestionView.html',
+      controller: 'PostQuestionController'
+    })
+    .state('questionMenu.allQuestions', {
+      url: '/allQuestions',
+      templateUrl: './views/allQuestionsView.html',
+      controller: 'AllQuestionsController'
     });
 
   $urlRouterProvider.otherwise('/home');
