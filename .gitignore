@@ -1,9 +1,9 @@
 dist/
 node_modules/
-config.js
+# config.js
 npm-debug.log
-bower_components/
-server/auth/config.js
+# bower_components/
+# server/auth/config.js
 
 __MACOSX
 .DS_Store
