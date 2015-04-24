@@ -15,29 +15,18 @@ var hostController = require('./controllers/hostController');
 
 var app = express();
 
-<<<<<<< HEAD
-// Routers
-var guestRouter = express.Router();
-var hostRouter = express.Router();
-
-app.use(favicon(__dirname + '/../public/client/assets/favicon.png'));
-=======
 // Define routers
 var guestRouter = express.Router();
 var hostRouter = express.Router();
 
 // Uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, '../favicon.ico')));
->>>>>>> development
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public/client')));
 
-<<<<<<< HEAD
-// Routes
-=======
 // Required for passport
 // TODO: Select a compatible session store for production environments
 app.use(session({
@@ -59,7 +48,6 @@ app.use('/deletesession', function(req, res) {
 });
 
 /* GET home page. */
->>>>>>> development
 app.get('/', function(req, res, next) {
   res.sendFile('/index.html');
 });
