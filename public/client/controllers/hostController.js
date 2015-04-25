@@ -20,7 +20,7 @@ angular.module('tokki')
   };
 
   // Opens a new session
-  $scope.init = function() {
+  $scope.startSession = function() {
 
     HostServices.startSession( function(data) {
       console.log('now listening for votes on session: ' + data.session);
